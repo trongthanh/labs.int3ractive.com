@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta name="title" content="In2Ideas office in 360° (NOW with snow)"/>
   <meta name="description" content="Equirectangular panorama demo with HTML5 Canvas, WebGL and three.js library by Thanh Tran - Creative Dept. - in2ideas. A modern browser like Firefox, Google Chrome is required. The example is based on a three.js example.
-    http://www.in2ideas.com"/>
+    https://www.in2ideas.com"/>
   <meta name="keywords" content=""/>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script type="text/javascript" src="js/info.js"></script>
 
   <link rel="image_src"
-        href="http://labs.int3ractive.com/javascript/webgl/panorama/img/In2Ideas_Labs_equirectangular_panorama_demo.jpg"/>
+        href="https://labs.int3ractive.com/javascript/webgl/panorama/img/In2Ideas_Labs_equirectangular_panorama_demo.jpg"/>
   <link rel="stylesheet" type="text/css" href="css/global.css" />
 
 </head>
@@ -21,12 +21,12 @@
 </div>
 <div id="info">
   <p>In2 Office Walkthrough with Equirectangular Panorama - An experiment by <a href="mailto:thanh.tran@in2ideas.com">Thanh Tran</a><br/>
-    The example is based on <a href="http://github.com/mrdoob/three.js" target="_blank" >a three.js example</a>.</p>
+    The example is based on <a href="https://github.com/mrdoob/three.js" target="_blank" >a three.js example</a>.</p>
   <p>Usage: Drag the screen to navigate around. Click on named markers for more person info. Click on observer marker to change position.<br/>List of employees is updated until 11/11/2011</p>
   <p><strong>Note.</strong> You need a modern browser that supports Canvas and latest Javascript specifications for this to run the way it is intended.<br/>
-    For example, <a href="http://www.google.com/chrome" target="_blank">Google Chrome 14+</a> or <a href="http://www.mozilla.com/firefox/" target="_blank">Firefox 7+</a>.</p>
+    For example, <a href="https://www.google.com/chrome" target="_blank">Google Chrome 14+</a> or <a href="https://www.mozilla.com/firefox/" target="_blank">Firefox 7+</a>.</p>
   <p>This demo will render with WebGL by default. If WebGL is not available for the browser, it will fallback to 2D Canvas rendering which is slower.<br/>Current renderer: <span id="renderer-info">NO CANVAS</span></p>
-  <p><a href="http://www.in2ideas.com" target="_blank">&copy; 2011 In2ideas.com</a></p>
+  <p><a href="https://www.in2ideas.com" target="_blank">&copy; 2011 In2ideas.com</a></p>
 </div>
 <div id="container"></div>
 <div id="loading-box">Loading...</div>
@@ -467,9 +467,9 @@ var fov = 70,
 var container, popout, activePano, panoList;
 
 //snow
-var particles = []; 
+var particles = [];
 var particleImage = new Image();/*THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" );*/
-particleImage.src = 'img/ParticleSmoke.png'; 
+particleImage.src = 'img/ParticleSmoke.png';
 
 //testing
 var targetPos = {x:0, y:0, z:0};
@@ -493,7 +493,7 @@ function init() {
   if (!Detector.canvas) {
     document.getElementById('loading-box').innerHTML = 'Your browser doesn\'t support <br/>HTML5 Canvas.';
   }
-  
+
   //if (false) {
   if (Detector.webgl) {
     renderer = new THREE.WebGLRenderer();
@@ -505,7 +505,7 @@ function init() {
   }
   renderer.setSize( window.innerWidth, window.innerHeight );
 
-  
+
   var snowTexture = new THREE.Texture(particleImage);
   var snowMat = new THREE.ParticleBasicMaterial( { map: snowTexture} );
 
@@ -514,7 +514,7 @@ function init() {
 
     if(isWebGL) {
       particle = new Particle3DWebGL(THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" ) );
-    } else {  
+    } else {
       particle = new Particle3DCanvas(snowMat );
     }
     particle.position.x = Math.random() * 700 - 350;
@@ -525,8 +525,8 @@ function init() {
 		//particle.uvOffset.set( -0.5, -0.5 );
 
     scene.add( particle );
-    
-    particles[j] = particle; 
+
+    particles[j] = particle;
   }
 
   Ticker.instance.add(this, renderSnow);
@@ -644,7 +644,7 @@ function animate() {
   TWEEN.update();
 }
 
-function render(forceRender) {  
+function render(forceRender) {
 
   lat = Math.max( - 85, Math.min( 85, lat ) );
   phi = ( 90 - lat ) * Math.PI / 180;
@@ -658,7 +658,7 @@ function render(forceRender) {
   camera.position.set(newPos.x, newPos.y, newPos.z);
 
   camera.lookAt( camera.target );
-  
+
   /*
   var now = new Date().getTime();
   if (now - frameTime > 120) {
@@ -697,15 +697,15 @@ function renderSnow() {
   var len = particles.length
   for(var i = 0; i < len; i++) {
 
-    var particle = particles[i]; 
-    particle.updatePhysics(); 
+    var particle = particles[i];
+    particle.updatePhysics();
 
     var pos = particle.position;
-    if(pos.y<-350) pos.y+=700; 
-    if(pos.x>350) pos.x-=700; 
-    else if(pos.x<-350) pos.x+=700; 
-    if(pos.z>350) pos.z-=700; 
-    else if(pos.z<-350) pos.z+=700; 
+    if(pos.y<-350) pos.y+=700;
+    if(pos.x>350) pos.x-=700;
+    else if(pos.x<-350) pos.x+=700;
+    if(pos.z>350) pos.z-=700;
+    else if(pos.z<-350) pos.z+=700;
   }
   renderer.render( scene, camera );
 }
@@ -718,7 +718,7 @@ _gaq.push(['_trackPageview']);
 
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
